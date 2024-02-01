@@ -9,7 +9,6 @@ class DiscoverController < ApplicationController
     end
 
     response = conn.get("3/rated/movies.json")
-    stub_request(:get, "https://api.themoviedb.org/3/rated/movies.json").to_return(status: 200, body: "", headers: {})
     json = JSON.parse(response.body, symbolize_names: true)
 
     @movies = json[:results]

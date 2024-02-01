@@ -6,6 +6,8 @@ RSpec.describe "Search by Title", type: :feature do
     before(:each) do
       @user = User.create!(name: 'John', email: 'john@email.com')
       # "When user visits '/users/:id/discover'"
+      json_response = File.read('spec/fixtures/top_rated_movies.json')
+      stub_request(:get, "https://api.themoviedb.org/3/rated/movies.json").to_return(status: 200, body: json_response)
       visit user_discover_index_path(@user)
     end
 
@@ -22,7 +24,7 @@ RSpec.describe "Search by Title", type: :feature do
     end
     
     it "has a Button to Search by Movie Title" do
-      expect(current_path).to eq(user_discover_path(@user.id))
+      expect(current_path).to eq(user_discover_index_path(@user.id))
       
       expect(page).to have_field("Search by Movie Title")
 
