@@ -1,8 +1,8 @@
 RSpec.describe "Search by Title", type: :feature do
-  describe "When user visits "/users/:id/discover"" do
+  describe "When user visits '/users/:id/discover'" do
     before(:each) do
-      @user = User.create!(name: "Tommy", email: "tommy@email.com")
-      @user = User.create!(name: "Sam", email: "sam@email.com")
+      # @user = User.create!(name: "Tommy", email: "tommy@email.com")
+      # @user = User.create!(name: "Sam", email: "sam@email.com")
 
       visit user_discover_path
     end
@@ -32,7 +32,6 @@ RSpec.describe "Search by Title", type: :feature do
 
         click("Search by Movie Title")
       end
-     
     end
   end
 end
