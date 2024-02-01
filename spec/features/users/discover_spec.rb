@@ -6,23 +6,23 @@ RSpec.describe "Search by Title", type: :feature do
     before(:each) do
       @user = User.create!(name: 'John', email: 'john@email.com')
       # "When user visits '/users/:id/discover'"
-      visit users_discover_path(@user)
+      visit user_discover_index_path(@user)
     end
 
     it "has a Button to Discover Top Rated Movies" do
-      expect(current_path).to eq(users_discover_path(@user.id))
+      expect(current_path).to eq(user_discover_index_path(@user.id))
       
       expect(page).to have_button("Discover Top Rated Movies")
     end
 
     it "has a text field to enter keyword(s) to search by movie title" do
-      expect(current_path).to eq(users_discover_path(@user.id))
+      expect(current_path).to eq(user_discover_index_path(@user.id))
 
       expect(page).to have_field("Search by Movie Title")
     end
     
     it "has a Button to Search by Movie Title" do
-      expect(current_path).to eq(users_discover_path(@user.id))
+      expect(current_path).to eq(user_discover_path(@user.id))
       
       expect(page).to have_field("Search by Movie Title")
 
