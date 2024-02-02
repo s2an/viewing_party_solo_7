@@ -1,9 +1,9 @@
-<h1><%= @user.name %>'s Top Rated Movies</h1>
+<h1>Top Rated Movies</h1>
   <ul>
-  <% @user.movies.each do |movie| %>
+  <% @movies.each do |movie| %>
     <div>
-      <li>Original Name: <%= movie.original_name %></li>
-      <li>Vote Average: <%= movie.vote_average %></li>
+      <li>Original Title: <%= link_to movie[:original_title], movie_path(movie) %></li>
+      <li>Vote Average: <%= movie[:vote_average] %></li>
     </div>
     <% end %>
   </ul>

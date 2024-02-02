@@ -44,7 +44,7 @@ RSpec.describe "/users/:id/discover", type: :feature do
   
     before(:each) do
       @user = User.create!(name: 'John', email: 'john@email.com')
-
+      
       json_response = File.read('spec/fixtures/top_rated_movies.json')
       stub_request(:get, "https://api.themoviedb.org/3/rated/movies.json").to_return(status: 200, body: json_response)
 
@@ -56,10 +56,10 @@ RSpec.describe "/users/:id/discover", type: :feature do
 
       click_button("Discover Top Rated Movies")
 
-      expect(current_path).to eq(user_movies_path)
+      expect(current_path).to eq(user_movies_path(@user))
       
-      expect(page).to have_link(movie.title, href: movie_path(movie))
-      expect(page).to have_content(movie.vote_average)
+      expect(page).to have_link(@movie[:original_title], href: movie_path(movie))
+      expect(page).to have_content(@movie[:vote_average])
       expect(page).to have_button("Return to Discover Page")
     end
   end
