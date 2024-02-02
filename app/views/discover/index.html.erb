@@ -2,3 +2,11 @@
 
 <section class="top_rated_movies">
   <%= button_to "Discover Top Rated Movies", method: :get %>
+  <br>
+<section class="search_by_movie_title">
+  <%= form_with method: :get, data: {turbo: false}, local: true do |f| %>
+    <%= f.label :search, "search by movie title" %>
+    <%= f.text_field :search %> 
+    <br>
+    <%= f.submit "Search by Movie Title" %>
+  <% end %>

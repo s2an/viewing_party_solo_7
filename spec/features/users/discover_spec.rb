@@ -20,19 +20,17 @@ RSpec.describe "Search by Title", type: :feature do
     it "has a text field to enter keyword(s) to search by movie title" do
       expect(current_path).to eq(user_discover_index_path(@user.id))
 
-      expect(page).to have_field("Search by Movie Title")
+      expect(page).to have_field("search by movie title")
     end
     
     it "has a Button to Search by Movie Title" do
       expect(current_path).to eq(user_discover_index_path(@user.id))
       
-      expect(page).to have_field("Search by Movie Title")
+      expect(page).to have_field("search by movie title")
 
-      fill_in ("Gone With the Wind")
+      fill_in("search by movie title", with: "Gone with the Wind")
 
       expect(page).to have_button("Search by Movie Title")
-
-      click("Search by Movie Title")
     end
   end
 end
