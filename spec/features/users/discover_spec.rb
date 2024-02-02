@@ -56,7 +56,7 @@ RSpec.describe "/users/:id/discover", type: :feature do
 
       click_button("Discover Top Rated Movies")
 
-      expect(current_path).to eq(movies_index_path)
+      expect(current_path).to eq(user_movies_path)
       
       expect(page).to have_link(movie.title, href: movie_path(movie))
       expect(page).to have_content(movie.vote_average)
