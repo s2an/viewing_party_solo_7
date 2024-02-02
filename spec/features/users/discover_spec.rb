@@ -12,6 +12,7 @@ RSpec.describe "/users/:id/discover", type: :feature do
 
     before(:each) do
       @user = User.create!(name: 'John', email: 'john@email.com')
+      
       json_response = File.read('spec/fixtures/top_rated_movies.json')
       stub_request(:get, "https://api.themoviedb.org/3/rated/movies.json").to_return(status: 200, body: json_response)
 

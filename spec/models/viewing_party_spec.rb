@@ -10,6 +10,7 @@ RSpec.describe ViewingParty, type: :model do
   end
   
   describe 'relationships' do
+      it { should belong_to :movie }
       it { should have_many :user_parties }
       it { should have_many(:users).through(:user_parties) }
   end
