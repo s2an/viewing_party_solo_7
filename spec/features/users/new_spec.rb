@@ -10,7 +10,6 @@ RSpec.describe 'Create New User', type: :feature do
     end
     
     it 'They see a Home link that redirects to landing page' do
-
       expect(page).to have_link('Home')
 
       click_link "Home"
