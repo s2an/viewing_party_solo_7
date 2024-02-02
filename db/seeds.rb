@@ -11,9 +11,18 @@
    User.create!(name: Faker::Name.name, email: Faker::Internet.email)
 end
 
+# create Movies
+5.times do
+   Movie.create!(original_title: Faker::Movie.title, vote_average: Faker::Number.between(from: 0.001, to: 10.000) )
+end
+
 # create Parties
 5.times do 
-   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"))
+   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"), movie: Movie.first)
+   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"), movie: Movie.second)
+   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"), movie: Movie.third)
+   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"), movie: Movie.fourth)
+   ViewingParty.create!(duration: rand(0..240), date: Faker::Date.forward(days: rand(1..14)), start_time: Time.new.strftime("%H:%M"), movie: Movie.fifth)
 end
 
 # set Hosts 

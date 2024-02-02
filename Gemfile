@@ -54,6 +54,12 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 gem "shoulda-matchers"
 
+# Allows for API requests in header
+gem "faraday"
+
+# Clandestine API call
+gem "figaro"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "pry"
@@ -76,4 +82,5 @@ group :test do
   gem "capybara"
   gem "launchy"
   gem "simplecov"
+  gem "webmock"
 end
